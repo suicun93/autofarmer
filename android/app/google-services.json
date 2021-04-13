@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "633344225480",
+    "project_id": "autofarmer-84839",
+    "storage_bucket": "autofarmer-84839.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:633344225480:android:4fb9552e060009d18a35fd",
+        "android_client_info": {
+          "package_name": "com.congaubeo.ducht.autofarmer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "633344225480-4epsmjanms91gorvno55pp92vtt56d1a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.congaubeo.ducht.autofarmer",
+            "certificate_hash": "ecdf16a946ffc44fae0b8e03e80bcf0a6bdbe2c9"
+          }
+        },
+        {
+          "client_id": "633344225480-up6dc580j47v98akfnt4e0gek1nb5kst.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwC6zRt9R3VjaPTQb06EzplwxrW-rAQz8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "633344225480-up6dc580j47v98akfnt4e0gek1nb5kst.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
