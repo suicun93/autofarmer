@@ -100,7 +100,7 @@ class HomeView extends GetView<HomeController> {
           children: [
             _iconMenuPhone(
               controller: controller,
-              mainView: MainView.HISTORY,
+              mainView: MainView.TODAY,
             ),
             _iconMenuPhone(
               controller: controller,
@@ -108,11 +108,11 @@ class HomeView extends GetView<HomeController> {
             ),
             _iconMenuPhone(
               controller: controller,
-              mainView: MainView.TODAY,
+              mainView: MainView.CLONE,
             ),
             _iconMenuPhone(
               controller: controller,
-              mainView: MainView.CLONE,
+              mainView: MainView.HISTORY,
             ),
             _iconMenuPhone(
               controller: controller,
