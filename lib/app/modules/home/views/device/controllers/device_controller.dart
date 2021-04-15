@@ -87,7 +87,7 @@ class DeviceController extends MyGetXController<DeviceProvider> {
   }
 
   void loadClone(Device device, {bool hardPush = false}) async {
-    if (deviceSum.value > 100 && !hardPush) {
+    if (deviceSum.value > 250 && !hardPush) {
       device.loading = false;
       device.error = true;
       return;
