@@ -67,11 +67,22 @@ class Preference {
     pref.setString('name_map', jsonEncode(nameMap));
   }
 
+  static Future<int> getTienthua() async {
+    final pref = await instance();
+    return pref.getInt('tienthua') ?? 0;
+  }
+
+  static setTienthua(int money) async {
+    final pref = await instance();
+    pref.setInt('tienthua', money);
+  }
+
   static clearAll() async {
     await setDeviceSum(0);
     await setUser('');
     await setUsername('');
     await setPassword('');
     await setToken('');
+    await setTienthua(0);
   }
 }

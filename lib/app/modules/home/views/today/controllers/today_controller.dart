@@ -33,6 +33,8 @@ class TodayController extends MyGetXController<TodayProvider> {
   final sanLuongUocChung = 0.obs;
   final soDevice = 0.obs;
 
+  final tienThua = 0.obs;
+
   reset() {
     tongTien.value = 0;
     likepage.value = 0;
@@ -111,11 +113,13 @@ class TodayController extends MyGetXController<TodayProvider> {
     }
 
     // Tính toán
+    tienThua.value = await Preference.getTienthua();
     tongTien.value = likepage.value * likepagePrice.value +
         follow.value * followPrice.value +
         buffcomment.value * buffcommentPrice.value +
         viplikeService.value * viplikeServicePrice.value +
-        bufflike.value * bufflikePrice.value;
+        bufflike.value * bufflikePrice.value -
+        tienThua.value;
 
     // Ước chừng sản lượng
     final DateTime now = DateTime.now().toLocal();
@@ -126,7 +130,7 @@ class TodayController extends MyGetXController<TodayProvider> {
     int steps = diff.inMinutes ~/ 30;
 
     // Tính sản lượng
-    tocDoTrungBinh.value = steps == 0 ? 0 : tongTien ~/ steps;
+    tocDoTrungBinh.value = steps == 0 ? 0 : tongTien.value ~/ steps;
     sanLuongUocChung.value = tocDoTrungBinh.value * 48;
     soDevice.value = await Preference.getDeviceSum();
 

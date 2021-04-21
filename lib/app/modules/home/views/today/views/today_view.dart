@@ -1,3 +1,5 @@
+import 'package:autofarmer/app/common/preferences.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -233,9 +235,39 @@ class TodayView extends GetView<TodayController> {
                                   price: controller.bufflikePrice.value,
                                 ),
                                 Divider(height: 2),
-                                _dataRow(
-                                  title: 'Tổng tiền',
-                                  number: controller.tongTien.value,
+                                InkWell(
+                                  onLongPress: () async => Get.dialog(
+                                    CupertinoAlertDialog(
+                                      title: Text('Sửa lỗi reset Today'),
+                                      content: CupertinoTextField(
+                                        placeholder: controller.tienThua.value
+                                            .toString(),
+                                        onChanged: (money) => controller
+                                            .tienThua.value = int.parse(
+                                          money,
+                                          onError: (money) => 0,
+                                        ),
+                                      ),
+                                      actions: [
+                                        CupertinoButton(
+                                            child: Text('OK'),
+                                            onPressed: () async {
+                                              await Preference.setTienthua(
+                                                controller.tienThua.value,
+                                              );
+                                              Get.back();
+                                            }),
+                                        CupertinoButton(
+                                          child: Text('Cancel'),
+                                          onPressed: () async => Get.back(),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  child: _dataRow(
+                                    title: 'Tổng tiền',
+                                    number: controller.tongTien.value,
+                                  ),
                                 ),
                                 Divider(
                                   height: 0,
