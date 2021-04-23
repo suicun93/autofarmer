@@ -79,7 +79,6 @@ class CloneController extends MyGetXController<CloneProvider> {
           // checkCheckpoint(clone);
         }
         cloneCount.value = clones.length;
-        if (showCheckpoint && clones.length < limit) checkCheckpointAll();
       }
     } catch (e) {
       error.value = true;

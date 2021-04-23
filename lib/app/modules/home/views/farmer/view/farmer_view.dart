@@ -25,7 +25,14 @@ class FarmerView extends GetView<FarmerController> {
               : RefreshIndicator(
                   onRefresh: () async => controller.loadFarmer(),
                   child: controller.error.value.isNotEmpty
-                      ? ListView(children: [NothingFound('Farmer')])
+                      ? ListView(
+                          children: [
+                            SizedBox(
+                              height: Get.height - Get.statusBarHeight - 200,
+                              child: NothingFound('Farmer'),
+                            ),
+                          ],
+                        )
                       : ListView(
                           children: [
                             _item(

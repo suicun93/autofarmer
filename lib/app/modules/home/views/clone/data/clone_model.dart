@@ -111,7 +111,7 @@ class Clone {
   Map<String, int> dataAction;
   String dataGroup;
   bool loading = false;
-  bool error = false;
+  bool error = true;
   bool checkpoint = false;
 
   factory Clone.fromJson(Map<String, dynamic> json) => Clone(

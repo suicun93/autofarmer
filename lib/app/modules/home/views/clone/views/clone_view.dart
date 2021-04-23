@@ -68,34 +68,30 @@ class CloneView extends GetView<CloneController> {
                               ),
                   ),
                   SizedBox(width: 5),
-                  // !(controller.selectedRequestType.value ==
-                  //         RequestType.CHECK_POINT)
-                  //     ? Container()
-                  //     : InkWell(
-                  //         onTap: controller.enableCheckpointBtn.value
-                  //             ? () async => controller.checkCheckpointAll()
-                  //             : null,
-                  //         child: Container(
-                  //           padding: EdgeInsets.all(8),
-                  //           decoration: BoxDecoration(
-                  //             borderRadius: BorderRadius.circular(10),
-                  //             color: Colors.indigoAccent.withAlpha(
-                  //                 controller.enableCheckpointBtn.value
-                  //                     ? 255
-                  //                     : 100),
-                  //           ),
-                  //           child: Center(
-                  //             child: Text(
-                  //               'Check',
-                  //               style: TextStyle(
-                  //                 color: Colors.white,
-                  //                 fontWeight: FontWeight.bold,
-                  //               ),
-                  //             ),
-                  //           ),
-                  //         ),
-                  //       ),
-                  // SizedBox(width: 5),
+                  !controller.showCheckpoint
+                      ? Container()
+                      : InkWell(
+                          onTap: () async => controller.checkCheckpointAll(),
+                          child: Container(
+                            padding: EdgeInsets.all(8),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: Colors.indigoAccent.withAlpha(
+                                controller.showCheckpoint ? 255 : 100,
+                              ),
+                            ),
+                            child: Center(
+                              child: Text(
+                                'Check',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                  SizedBox(width: 5),
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 6),
                     height: 34,
