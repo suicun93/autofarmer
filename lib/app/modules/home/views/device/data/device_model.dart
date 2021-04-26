@@ -114,33 +114,18 @@ class Device {
   String deviceName;
   String imei;
   String model;
-  String product;
-  String bootloader;
-  String host;
-  String display;
-  String abi;
-  String api;
-  String androidVersion;
-  String androidId;
-  String timeZone;
-  String dpi;
-  String width;
-  String height;
-  String appVersionName;
-  String macAddress;
+
   bool loading = true;
   bool error = false;
   int cloneCount = 0;
   String lastOnlineString = '';
   int _lastOnlineSecond = 0;
 
-  bool get lastOnlineTooLong => (_lastOnlineSecond ~/ 1000) > 300;
+  int get lastOnlineTooLong => _lastOnlineSecond ~/ 1000;
 
-  bool get isOffline => loading || error || lastOnlineTooLong;
+  bool get isOffline => loading || error || lastOnlineTooLong > 3600;
 
-  String get displayName => androidId != null
-      ? androidId.substring(androidId.length - 7)
-      : imei?.substring(imei.length - 7) ?? '';
+  String get displayName => imei?.substring(imei.length - 7) ?? '';
 
   void lastOnlineCount(List<Clone> listCLone) {
     // Empty list

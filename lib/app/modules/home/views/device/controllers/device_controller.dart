@@ -130,7 +130,7 @@ class DeviceController extends MyGetXController<DeviceProvider> {
   changeDeviceName(Device device) async {
     isSync.value = true;
     final oldMap = await Preference.getNameMap();
-    oldMap[device.androidId] = device.deviceName;
+    oldMap[device.imei] = device.deviceName;
     await Preference.setNameMap(oldMap);
     isSync.value = false;
     devices.refresh();

@@ -374,9 +374,13 @@ class DeviceView extends GetView<DeviceController> {
                               ),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
-                                color: device.lastOnlineTooLong
-                                    ? Colors.redAccent
-                                    : Colors.lightGreen,
+                                color: device.lastOnlineTooLong > 3600
+                                    ? Colors.red
+                                    : device.lastOnlineTooLong > 1800
+                                        ? Colors.deepOrangeAccent
+                                        : device.lastOnlineTooLong > 300
+                                            ? Colors.orangeAccent
+                                            : Colors.lightGreen,
                               ),
                               child: Text(
                                 device.lastOnlineString,
