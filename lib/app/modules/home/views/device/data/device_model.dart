@@ -455,8 +455,14 @@ class Device {
   int cloneCount = 0;
   String lastOnlineString = '';
   int _lastOnlineSecond = 0;
+
   bool get lastOnlineTooLong => (_lastOnlineSecond ~/ 1000) > 300;
+
   bool get isOffline => loading || error || lastOnlineTooLong;
+
+  String get displayName => androidId != null
+      ? androidId.substring(androidId.length - 7)
+      : imei?.substring(imei.length - 7) ?? '';
 
   void lastOnlineCount(List<Clone> listCLone) {
     // Empty list

@@ -21,9 +21,7 @@ class DeviceView extends GetView<DeviceController> {
             Container(
               width: double.infinity,
               height: 50,
-              padding: const EdgeInsets.symmetric(
-                horizontal: 8,
-              ),
+              padding: EdgeInsets.symmetric(horizontal: 8),
               color: Colors.yellow.withAlpha(90),
               child: Row(
                 children: [
@@ -264,7 +262,7 @@ class DeviceView extends GetView<DeviceController> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        device.androidId.substring(device.androidId.length - 7),
+                        device.displayName,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
