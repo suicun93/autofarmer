@@ -15,8 +15,8 @@ enum Environment { PRODUCTION, TEST, DEV }
 const currentEnvironment = Environment.DEV;
 
 get endpointApi => currentEnvironment == Environment.PRODUCTION
-    ? 'https://us-central1-autofarmer-net-9f4b8.cloudfunctions.net'
-    : 'https://us-central1-autofarmer-net-9f4b8.cloudfunctions.net';
+    ? 'https://api-web.autofarmer.net/public-api/v1/users'
+    : 'https://api-web.autofarmer.net/public-api/v1/users';
 
 // App primary color
 const Color primaryColor = Color(0xff1E3C72);

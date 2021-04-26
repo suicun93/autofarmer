@@ -1,185 +1,139 @@
-Login loginFromJson(Map<String, dynamic> str) => Login.fromJson(str);
+// To parse this JSON data, do
+//
+//     final loginResponse = loginResponseFromJson(jsonString);
 
-Map<String, dynamic> loginToJson(Login data) => data.toJson();
+import 'dart:convert';
 
-class Login {
-  Login({
-    this.result,
-  });
+LoginResponse loginResponseFromJson(String str) =>
+    LoginResponse.fromJson(json.decode(str));
 
-  Result result;
+String loginResponseToJson(LoginResponse data) => json.encode(data.toJson());
 
-  factory Login.fromJson(Map<String, dynamic> json) => Login(
-        result: json["result"] == null ? null : Result.fromJson(json["result"]),
-      );
-
-  Map<String, dynamic> toJson() => {
-        "result": result == null ? null : result.toJson(),
-      };
-}
-
-class Result {
-  Result({
-    this.success,
+class LoginResponse {
+  LoginResponse({
+    this.code,
     this.message,
-    this.data,
+    this.user,
   });
 
-  bool success;
+  int code;
   String message;
-  Data data;
+  User user;
 
-  factory Result.fromJson(Map<String, dynamic> json) => Result(
-        success: json["success"] == null ? null : json["success"],
-        message: json["message"] == null ? null : json["message"],
-        data: json["data"] == null ? null : Data.fromJson(json["data"]),
+  factory LoginResponse.fromJson(Map<String, dynamic> json) => LoginResponse(
+        code: json['code'] == null ? null : json['code'],
+        message: json['message'] == null ? null : json['message'],
+        user: json['data'] == null ? null : User.fromJson(json['data']),
       );
 
   Map<String, dynamic> toJson() => {
-        "success": success == null ? null : success,
-        "message": message == null ? null : message,
-        "data": data == null ? null : data.toJson(),
+        'code': code == null ? null : code,
+        'message': message == null ? null : message,
+        'data': user == null ? null : user.toJson(),
       };
 }
 
-class Data {
-  Data({
-    this.id,
-    this.username,
-    this.fullname,
-    this.balance,
-    this.token,
-    this.role,
-    this.status,
-    this.referenceCode,
-    this.password,
-    this.debugMode,
-    this.dataCreatedAt,
-    this.createdAt,
-    this.isLikeSub,
-    this.updatedAt,
-    this.user100App,
+class User {
+  User({
     this.accountName,
     this.bankName,
     this.bankNumber,
+    this.connectivity,
     this.resonanceCode,
+    this.agentCode,
+    this.balance,
+    this.checkApp,
     this.email,
     this.fblink,
-    this.checkApp,
+    this.fullname,
+    this.id,
+    this.isLikeSub,
+    this.isReg,
+    this.role,
+    this.shareLiveStream,
+    this.status,
+    this.token,
+    this.user100App,
+    this.userInviteCode,
+    this.userToken,
+    this.username,
   });
 
-  String id;
-  String username;
-  String fullname;
-  int balance;
-  String token;
-  int role;
-  String status;
-  String referenceCode;
-  String password;
-  String debugMode;
-  DateTime dataCreatedAt;
-  int createdAt;
-  bool isLikeSub;
-  UpdatedAt updatedAt;
-  bool user100App;
   String accountName;
   String bankName;
   String bankNumber;
+  String connectivity;
   String resonanceCode;
+  String agentCode;
+  int balance;
+  bool checkApp;
   String email;
   String fblink;
-  bool checkApp;
+  String fullname;
+  String id;
+  bool isLikeSub;
+  bool isReg;
+  int role;
+  bool shareLiveStream;
+  String status;
+  String token;
+  bool user100App;
+  String userInviteCode;
+  String userToken;
+  String username;
 
-  factory Data.fromJson(Map<String, dynamic> json) => Data(
-        id: json["_id"] == null ? null : json["_id"],
-        username: json["username"] == null ? null : json["username"],
-        fullname: json["fullname"] == null ? null : json["fullname"],
-        balance: json["balance"] == null ? null : json["balance"],
-        token: json["token"] == null ? null : json["token"],
-        role: json["role"] == null ? null : json["role"],
-        status: json["status"] == null ? null : json["status"],
-        referenceCode:
-            json["reference_code"] == null ? null : json["reference_code"],
-        password: json["password"] == null ? null : json["password"],
-        debugMode: json["debug_mode"] == null ? null : json["debug_mode"],
-        dataCreatedAt: json["created_at"] == null
-            ? null
-            : DateTime.parse(json["created_at"]),
-        createdAt: json["createdAt"] == null ? null : json["createdAt"],
-        isLikeSub: json["isLikeSub"] == null ? null : json["isLikeSub"],
-        updatedAt: json["updated_at"] == null
-            ? null
-            : UpdatedAt.fromJson(json["updated_at"]),
-        user100App: json["user_100_app"] == null ? null : json["user_100_app"],
-        accountName: json["AccountName"] == null ? null : json["AccountName"],
-        bankName: json["BankName"] == null ? null : json["BankName"],
-        bankNumber: json["BankNumber"] == null ? null : json["BankNumber"],
+  factory User.fromJson(Map<String, dynamic> json) => User(
+        accountName: json['AccountName'] == null ? null : json['AccountName'],
+        bankName: json['BankName'] == null ? null : json['BankName'],
+        bankNumber: json['BankNumber'] == null ? null : json['BankNumber'],
+        connectivity:
+            json['Connectivity'] == null ? null : json['Connectivity'],
         resonanceCode:
-            json["ResonanceCode"] == null ? null : json["ResonanceCode"],
-        email: json["email"] == null ? null : json["email"],
-        fblink: json["fblink"] == null ? null : json["fblink"],
-        checkApp: json["check_app"] == null ? null : json["check_app"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "_id": id == null ? null : id,
-        "username": username == null ? null : username,
-        "fullname": fullname == null ? null : fullname,
-        "balance": balance == null ? null : balance,
-        "token": token == null ? null : token,
-        "role": role == null ? null : role,
-        "status": status == null ? null : status,
-        "reference_code": referenceCode == null ? null : referenceCode,
-        "password": password == null ? null : password,
-        "debug_mode": debugMode == null ? null : debugMode,
-        "created_at":
-            dataCreatedAt == null ? null : dataCreatedAt.toIso8601String(),
-        "createdAt": createdAt == null ? null : createdAt,
-        "isLikeSub": isLikeSub == null ? null : isLikeSub,
-        "updated_at": updatedAt == null ? null : updatedAt.toJson(),
-        "user_100_app": user100App == null ? null : user100App,
-        "AccountName": accountName == null ? null : accountName,
-        "BankName": bankName == null ? null : bankName,
-        "BankNumber": bankNumber == null ? null : bankNumber,
-        "ResonanceCode": resonanceCode == null ? null : resonanceCode,
-        "email": email == null ? null : email,
-        "fblink": fblink == null ? null : fblink,
-        "check_app": checkApp == null ? null : checkApp,
-      };
-}
-
-class UpdatedAt {
-  UpdatedAt({
-    this.date,
-  });
-
-  Date date;
-
-  factory UpdatedAt.fromJson(Map<String, dynamic> json) => UpdatedAt(
-        date: json["\u0024date"] == null
+            json['ResonanceCode'] == null ? null : json['ResonanceCode'],
+        agentCode: json['agent_code'] == null ? null : json['agent_code'],
+        balance: json['balance'] == null ? null : json['balance'],
+        checkApp: json['check_app'] == null ? null : json['check_app'],
+        email: json['email'] == null ? null : json['email'],
+        fblink: json['fblink'] == null ? null : json['fblink'],
+        fullname: json['fullname'] == null ? null : json['fullname'],
+        id: json['id'] == null ? null : json['id'],
+        isLikeSub: json['isLikeSub'] == null ? null : json['isLikeSub'],
+        isReg: json['is_reg'] == null ? null : json['is_reg'],
+        role: json['role'] == null ? null : json['role'],
+        shareLiveStream: json['share_live_stream'] == null
             ? null
-            : Date.fromJson(json["\u0024date"]),
+            : json['share_live_stream'],
+        status: json['status'] == null ? null : json['status'],
+        token: json['token'] == null ? null : json['token'],
+        user100App: json['user_100_app'] == null ? null : json['user_100_app'],
+        userInviteCode:
+            json['user_invite_code'] == null ? null : json['user_invite_code'],
+        userToken: json['user_token'] == null ? null : json['user_token'],
+        username: json['username'] == null ? null : json['username'],
       );
 
   Map<String, dynamic> toJson() => {
-        "\u0024date": date == null ? null : date.toJson(),
-      };
-}
-
-class Date {
-  Date({
-    this.numberLong,
-  });
-
-  String numberLong;
-
-  factory Date.fromJson(Map<String, dynamic> json) => Date(
-        numberLong:
-            json["\u0024numberLong"] == null ? null : json["\u0024numberLong"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "\u0024numberLong": numberLong == null ? null : numberLong,
+        'AccountName': accountName == null ? null : accountName,
+        'BankName': bankName == null ? null : bankName,
+        'BankNumber': bankNumber == null ? null : bankNumber,
+        'Connectivity': connectivity == null ? null : connectivity,
+        'ResonanceCode': resonanceCode == null ? null : resonanceCode,
+        'agent_code': agentCode == null ? null : agentCode,
+        'balance': balance == null ? null : balance,
+        'check_app': checkApp == null ? null : checkApp,
+        'email': email == null ? null : email,
+        'fblink': fblink == null ? null : fblink,
+        'fullname': fullname == null ? null : fullname,
+        'id': id == null ? null : id,
+        'isLikeSub': isLikeSub == null ? null : isLikeSub,
+        'is_reg': isReg == null ? null : isReg,
+        'role': role == null ? null : role,
+        'share_live_stream': shareLiveStream == null ? null : shareLiveStream,
+        'status': status == null ? null : status,
+        'token': token == null ? null : token,
+        'user_100_app': user100App == null ? null : user100App,
+        'user_invite_code': userInviteCode == null ? null : userInviteCode,
+        'user_token': userToken == null ? null : userToken,
+        'username': username == null ? null : username,
       };
 }

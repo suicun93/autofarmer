@@ -22,6 +22,7 @@
     <list default="true" id="9bcdb772-b45e-42c4-9fa5-4b77cc689edc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.flutter-plugins" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/mac.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/mac.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
@@ -29,10 +30,28 @@
       <change beforePath="$PROJECT_DIR$/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ios/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Podfile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/common/const.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/common/const.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/common/preferences.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/common/preferences.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/data/models/login_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/data/models/login_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/data/providers/login_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/data/providers/login_provider.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/app/modules/home/views/clone/controllers/clone_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/modules/home/views/clone/controllers/clone_controller.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/app/modules/home/views/clone/data/clone_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/modules/home/views/clone/data/clone_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/modules/home/views/clone/data/clone_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/modules/home/views/clone/data/clone_provider.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/app/modules/home/views/clone/views/clone_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/modules/home/views/clone/views/clone_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/modules/home/views/device/controllers/device_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/modules/home/views/device/controllers/device_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/modules/home/views/device/data/device_clone_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/modules/home/views/device/data/device_clone_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/modules/home/views/device/data/device_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/modules/home/views/device/data/device_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/modules/home/views/device/data/device_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/modules/home/views/device/data/device_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/modules/home/views/device/views/device_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/modules/home/views/device/views/device_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/modules/home/views/farmer/controllers/farmer_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/modules/home/views/farmer/controllers/farmer_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/modules/home/views/farmer/data/farmer_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/modules/home/views/farmer/data/farmer_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/modules/home/views/farmer/data/farmer_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/modules/home/views/farmer/data/farmer_provider.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/app/modules/home/views/farmer/view/farmer_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/modules/home/views/farmer/view/farmer_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/modules/home/views/history/controllers/history_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/modules/home/views/history/controllers/history_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/modules/home/views/history/data/history_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/modules/home/views/history/data/history_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/modules/home/views/today/controllers/today_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/modules/home/views/today/controllers/today_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/modules/home/views/today/data/today_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/modules/home/views/today/data/today_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/modules/login/controllers/login_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/modules/login/controllers/login_controller.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,35 +107,49 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1392" height="457" key="GridCell.Tab.0.bottom" timestamp="1619162014606">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="616" height="466" key="DebuggerActiveHint" timestamp="1619463702023">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state width="616" height="466" key="DebuggerActiveHint/2560.122.1920.1200/0.0.2560.1440@0.0.2560.1440" timestamp="1619463702023" />
+    <state width="2518" height="512" key="GridCell.Tab.0.bottom" timestamp="1619464156920">
+      <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="1392" height="457" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1619162014606" />
-    <state width="2518" height="416" key="GridCell.Tab.0.bottom/2560.122.1920.1200/0.0.2560.1440@0.0.2560.1440" timestamp="1619006047581" />
-    <state width="1392" height="457" key="GridCell.Tab.0.center" timestamp="1619162014606">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="2518" height="512" key="GridCell.Tab.0.bottom/2560.122.1920.1200/0.0.2560.1440@0.0.2560.1440" timestamp="1619464156920" />
+    <state width="2518" height="512" key="GridCell.Tab.0.center" timestamp="1619464156918">
+      <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="1392" height="457" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1619162014606" />
-    <state width="2518" height="416" key="GridCell.Tab.0.center/2560.122.1920.1200/0.0.2560.1440@0.0.2560.1440" timestamp="1619006047580" />
-    <state width="1392" height="457" key="GridCell.Tab.0.left" timestamp="1619162014605">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="2518" height="512" key="GridCell.Tab.0.center/2560.122.1920.1200/0.0.2560.1440@0.0.2560.1440" timestamp="1619464156918" />
+    <state width="2518" height="512" key="GridCell.Tab.0.left" timestamp="1619464156918">
+      <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="1392" height="457" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1619162014605" />
-    <state width="2518" height="416" key="GridCell.Tab.0.left/2560.122.1920.1200/0.0.2560.1440@0.0.2560.1440" timestamp="1619006047578" />
-    <state width="1392" height="457" key="GridCell.Tab.0.right" timestamp="1619162014606">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="2518" height="512" key="GridCell.Tab.0.left/2560.122.1920.1200/0.0.2560.1440@0.0.2560.1440" timestamp="1619464156918" />
+    <state width="2518" height="512" key="GridCell.Tab.0.right" timestamp="1619464156919">
+      <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="1392" height="457" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1619162014606" />
-    <state width="2518" height="416" key="GridCell.Tab.0.right/2560.122.1920.1200/0.0.2560.1440@0.0.2560.1440" timestamp="1619006047580" />
-    <state x="409" y="295" width="826" height="490" key="find.popup" timestamp="1619161098841">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="2518" height="512" key="GridCell.Tab.0.right/2560.122.1920.1200/0.0.2560.1440@0.0.2560.1440" timestamp="1619464156919" />
+    <state x="545" y="393" width="1102" height="654" key="find.popup" timestamp="1619464146912">
+      <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="409" y="295" width="826" height="490" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1619161098841" />
-    <state x="709" y="264" width="670" height="507" key="search.everywhere.popup" timestamp="1619161106252">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="545" y="393" width="1102" height="654" key="find.popup/2560.122.1920.1200/0.0.2560.1440@0.0.2560.1440" timestamp="1619464146912" />
+    <state x="945" y="352" width="670" height="676" key="search.everywhere.popup" timestamp="1619466224354">
+      <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="709" y="264" width="670" height="507" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1619161106252" />
     <state x="709" y="264" width="670" height="507" key="search.everywhere.popup/0.23.1920.1002@0.23.1920.1002" timestamp="1619150990494" />
-    <state x="945" y="352" width="670" height="676" key="search.everywhere.popup/2560.122.1920.1200/0.0.2560.1440@0.0.2560.1440" timestamp="1619018890095" />
+    <state x="945" y="352" width="670" height="676" key="search.everywhere.popup/2560.122.1920.1200/0.0.2560.1440@0.0.2560.1440" timestamp="1619466224354" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="FlutterRunConfigurationType">
+        <watch expression="response.body.user.token" language="Dart" />
+        <watch expression="requestTypeMap[requestType]" language="Dart" />
+        <watch expression="requestType == RequestType.ALL ? false:true" language="Dart" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

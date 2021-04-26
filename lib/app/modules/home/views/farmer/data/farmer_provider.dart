@@ -12,9 +12,8 @@ class FarmerProvider extends GetConnect {
 
   Future<Response<FarmerResponse>> getFarmer() async {
     String token = await Preference.getToken();
-    return await post(
-      '$endpointApi/getUser',
-      {'data': "{\"token\":\"$token\",\"page\":1}"},
+    return await get(
+      '$endpointApi/detail',
       headers: {
         'Content-Type': 'application/json',
         'token': token,

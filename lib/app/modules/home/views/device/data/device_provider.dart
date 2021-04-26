@@ -17,9 +17,15 @@ class DeviceProvider extends GetConnect {
   }) async {
     String token = await Preference.getToken();
     return await post(
-      '$endpointApi/GetDevice',
-      {'data': '{\"limit\":$limit,\"page\":$page,\"token\":\"$token\"}'},
-      headers: {'Content-Type': 'application/json'},
+      '$endpointApi/devices/all',
+      {
+        'limit': limit,
+        'page': page,
+      },
+      headers: {
+        'Content-Type': 'application/json',
+        'token': token,
+      },
     );
   }
 
@@ -28,12 +34,16 @@ class DeviceProvider extends GetConnect {
   }) async {
     String token = await Preference.getToken();
     return await post(
-      '$endpointApi/GetCloneType',
+      '$endpointApi/devices/all-clone',
       {
-        'data':
-            '{\"limit\":120,\"page\":1,\"token\":\"$token\",\"IMEI\":\"$imei\"}'
+        "limit": 120,
+        "page": 1,
+        "IMEI": imei,
       },
-      headers: {'Content-Type': 'application/json'},
+      headers: {
+        'Content-Type': 'application/json',
+        'token': token,
+      },
       decoder: (map) => CloneDeviceResponse.fromJson(map),
     );
   }

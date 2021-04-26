@@ -61,9 +61,9 @@ class CloneController extends MyGetXController<CloneProvider> {
       }
 
       // Lỗi server
-      if (!response.body.result.success) {
+      if (response.body.code != 200) {
         error.value = true;
-        toast(content: 'Nothing');
+        toast(content: 'Server error: ' + response.body.message);
         return;
       }
 
@@ -71,13 +71,10 @@ class CloneController extends MyGetXController<CloneProvider> {
       error.value = false;
       if (response.body.requestType != selectedRequestType.value) return;
 
-      cloneSum.value = response.body.result.total;
-      if (response.body.result.listClone != null &&
-          response.body.result.listClone.length != 0) {
-        for (Clone clone in response.body.result.listClone) {
-          clones.add(clone);
-          // checkCheckpoint(clone);
-        }
+      cloneSum.value = response.body.data.total;
+      if (response.body.data.listClone != null &&
+          response.body.data.listClone.length != 0) {
+        clones.addAll(response.body.data.listClone);
         cloneCount.value = clones.length;
       }
     } catch (e) {
@@ -146,7 +143,7 @@ class CloneController extends MyGetXController<CloneProvider> {
 
     // Looxi majng
     if (!response.isOk) {
-      toast(content: 'Reset Clone thất bại');
+      toast(content: 'Server error. Reset Clone thất bại');
       ready.value = true;
       return;
     }
@@ -172,7 +169,7 @@ class CloneController extends MyGetXController<CloneProvider> {
 
     // Looxi majng
     if (!response.isOk) {
-      toast(content: 'Xóa Clone thất bại');
+      toast(content: 'Server error. Xóa Clone thất bại');
       ready.value = true;
       return;
     }
@@ -188,5 +185,6 @@ class CloneController extends MyGetXController<CloneProvider> {
   }
 
   int get resetLiveCloneCount => clones.length - checkPointCloneCount.value;
+
   int get checkpointCloneCount => checkPointCloneCount.value;
 }

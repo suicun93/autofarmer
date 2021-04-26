@@ -205,8 +205,8 @@ class DeviceView extends GetView<DeviceController> {
                               itemBuilder: (context, index) {
                                 if (index ==
                                     controller.devices.length - limit) {
-                                  if (controller.response.body.result.data
-                                          .deviceList.length >=
+                                  if (controller.response.body.data.deviceList
+                                          .length >=
                                       limit) controller.loadDevices();
                                 }
                                 final device = controller.devices[index];

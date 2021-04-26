@@ -58,8 +58,8 @@ class DeviceController extends MyGetXController<DeviceProvider> {
       }
 
       // Lỗi server
-      if (!response.body.result.success) {
-        toast(content: response.body.result.message);
+      if (response.body.code != 200) {
+        toast(content: 'Server error: ' + response.body.message);
         error.value = true;
         return;
       }
@@ -67,14 +67,14 @@ class DeviceController extends MyGetXController<DeviceProvider> {
       // Success => Add all new users vao list
       error.value = false;
 
-      deviceSum.value = response.body.result.total;
+      deviceSum.value = response.body.data.total;
       await Preference.setDeviceSum(deviceSum.value);
       Get.find<TodayController>().soDevice.value = deviceSum.value;
-      if (response.body.result.data.deviceList != null &&
-          response.body.result.data.deviceList.length != 0) {
-        for (DeviceList deviceList in response.body.result.data.deviceList) {
-          deviceList.device.deviceName = mapName[deviceList.device.androidId] ??
-              deviceList.device.deviceName;
+      if (response.body.data.deviceList != null &&
+          response.body.data.deviceList.length != 0) {
+        for (DeviceList deviceList in response.body.data.deviceList) {
+          deviceList.device.deviceName =
+              mapName[deviceList.device.imei] ?? deviceList.device.deviceName;
           devices.add(deviceList.device);
           loadClone(deviceList.device);
         }
@@ -110,15 +110,15 @@ class DeviceController extends MyGetXController<DeviceProvider> {
       }
 
       // Lỗi server
-      if (!response.body.result.success) {
+      if (response.body.code != 200) {
         device.error = true;
         devices.refresh();
         return;
       }
 
       device.error = false;
-      device.cloneCount = response.body.result.total;
-      device.lastOnlineCount(response.body.result.listClone);
+      device.cloneCount = response.body.listClone.length;
+      device.lastOnlineCount(response.body.listClone);
       devices.refresh();
     } catch (_) {
       device.loading = false;

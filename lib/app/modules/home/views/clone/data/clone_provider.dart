@@ -15,12 +15,16 @@ class CloneProvider extends GetConnect {
   }) async {
     String token = await Preference.getToken();
     final Response<CloneResponse> response = await post(
-      '$endpointApi/GetClone',
+      '$endpointApi/clones/search',
       {
-        "data":
-            "{\"limit\":$limit,\"page\":$page,\"token\":\"$token\",\"action\":\"${requestTypeMap[requestType]}\"}"
+        "limit": limit,
+        "page": page,
+        "alive_status": requestTypeMap[requestType],
       },
-      headers: {'Content-Type': 'application/json'},
+      headers: {
+        'Content-Type': 'application/json',
+        'token': token,
+      },
       decoder: (map) => CloneResponse.fromJson(map),
     );
     response.body.requestType = requestType;
@@ -37,10 +41,10 @@ class CloneProvider extends GetConnect {
   }
 
   Future<Response> deleteAllClone(List<String> listClone) async {
-    String token = await Preference.getToken();
+    String token = await Preference.getUserToken();
     final listCloneExtended = listClone.map((clone) => '\"$clone\"');
     return await post(
-      '$endpointApi/DeleteCloneAll',
+      'https://us-central1-autofarmer-net-9f4b8.cloudfunctions.net/DeleteCloneAll',
       {
         'data':
             '{\"dataClone\":[${listCloneExtended.join(',')}],\"token\":\"$token\"}'
@@ -50,10 +54,10 @@ class CloneProvider extends GetConnect {
   }
 
   Future<Response> resetCloneLive(List<String> listClone) async {
-    String token = await Preference.getToken();
+    String token = await Preference.getUserToken();
     final listCloneExtended = listClone.map((clone) => '\"$clone\"');
     return await post(
-      '$endpointApi/ResetCloneLive',
+      'https://us-central1-autofarmer-net-9f4b8.cloudfunctions.net/ResetCloneLive',
       {
         'data':
             '{\"dataClone\":[${listCloneExtended.join(',')}],\"token\":\"$token\"}'
@@ -65,11 +69,11 @@ class CloneProvider extends GetConnect {
 
 enum RequestType { ALL, LIVE, STORED, CHECK_POINT }
 
-Map<RequestType, String> requestTypeMap = {
-  RequestType.ALL: '/clone',
-  RequestType.LIVE: 'live',
-  RequestType.STORED: 'stored',
-  RequestType.CHECK_POINT: 'checkpoint',
+Map<RequestType, List<String>> requestTypeMap = {
+  RequestType.ALL: ["live", "verifying", "checkpoint", "stored"],
+  RequestType.LIVE: ["live"],
+  RequestType.STORED: ["stored"],
+  RequestType.CHECK_POINT: ["checkpoint"],
 };
 
 extension Parsing on RequestType {

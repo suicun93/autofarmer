@@ -47,6 +47,16 @@ class Preference {
     pref.setString('token', token);
   }
 
+  static Future<String> getUserToken() async {
+    final pref = await instance();
+    return pref.getString('user_token') ?? '';
+  }
+
+  static setUserToken(String token) async {
+    final pref = await instance();
+    pref.setString('user_token', token);
+  }
+
   static Future<int> getDeviceSum() async {
     final pref = await instance();
     return pref.getInt('device_sum') ?? 0;
@@ -83,6 +93,7 @@ class Preference {
     await setUsername('');
     await setPassword('');
     await setToken('');
+    await setUserToken('');
     await setTienthua(0);
   }
 }

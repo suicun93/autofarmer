@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../../common/const.dart';
 import '../../../../../views/views/loading_view.dart';
@@ -24,7 +23,7 @@ class FarmerView extends GetView<FarmerController> {
               ? LoadingWidget()
               : RefreshIndicator(
                   onRefresh: () async => controller.loadFarmer(),
-                  child: controller.error.value.isNotEmpty
+                  child: controller.error.value
                       ? ListView(
                           children: [
                             SizedBox(
@@ -46,7 +45,7 @@ class FarmerView extends GetView<FarmerController> {
                             _item(
                               title: 'Khởi tạo ngày',
                               content: formatDatetime(
-                                controller.farmer.value.datumCreatedAt,
+                                controller.farmer.value.createdAt,
                               ),
                             ),
                             _item(
@@ -77,10 +76,9 @@ class FarmerView extends GetView<FarmerController> {
                               onLongPress: () async => copyToClipboard(
                                 'https://www.autofarmer.net/sign-up?reference_code=6SM4WK',
                               ),
-                              onTap: () => launch(
-                                'https://www.autofarmer.net/sign-up?reference_code=6SM4WK',
-                                forceSafariVC: false,
-                                forceWebView: false,
+                              onTap: () async => copyToClipboard(
+                                controller.farmer.value.referenceCode +
+                                    controller.farmer.value.inviteCode,
                               ),
                               child: _item(
                                 title: 'Mã giới thiệu',

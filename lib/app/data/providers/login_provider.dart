@@ -8,15 +8,17 @@ class LoginProvider extends GetConnect {
   @override
   void onInit() {}
 
-  Future<Response<Login>> logIn({
+  Future<Response<LoginResponse>> logIn({
     @required String username,
     @required String password,
   }) async =>
       await post(
-        '$endpointApi/checkLogin',
+        '$endpointApi/login',
         {
-          'data': "{\"username\":\"$username\",\"password\":\"$password\"}",
+          'username': username,
+          'password': password,
+          'device_id': 'ABC',
         },
-        decoder: (map) => Login.fromJson(map),
+        decoder: (map) => LoginResponse.fromJson(map),
       );
 }

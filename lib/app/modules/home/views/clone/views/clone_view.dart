@@ -188,7 +188,7 @@ class CloneView extends GetView<CloneController> {
                               physics: AlwaysScrollableScrollPhysics(),
                               itemBuilder: (context, index) {
                                 if (index == controller.clones.length - limit) {
-                                  if (controller.response.body.result.listClone
+                                  if (controller.response.body.data.listClone
                                           .length >=
                                       limit) controller.loadClones();
                                 }

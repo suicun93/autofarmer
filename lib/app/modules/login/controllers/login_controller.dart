@@ -25,11 +25,12 @@ class LoginController extends MyGetXController<T.LoginProvider> {
     if (!response.isOk) return '${response.statusText}';
 
     // Lỗi server
-    if (!response.body.result.success) return '${response.body.result.message}';
+    if (response.body.code != 200) return '${response.body.message}';
 
     // Login Success
-    await Preference.setToken(response.body.result.data.token);
-    await Preference.setUser(response.body.result.data.fullname);
+    await Preference.setToken(response.body.user.token);
+    await Preference.setUserToken(response.body.user.userToken);
+    await Preference.setUser(response.body.user.fullname);
     await Preference.setUsername(data.name);
     await Preference.setPassword(data.password);
 

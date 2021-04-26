@@ -84,7 +84,7 @@ class TodayController extends MyGetXController<TodayProvider> {
 
       // Lỗi server
       if (!response.body.result.success || response.body.result.total == 0) {
-        toast(content: 'Today can not be loaded');
+        toast(content: 'Server Error');
         ready.value = true;
         error.value = true;
         return;

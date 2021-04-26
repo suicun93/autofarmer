@@ -37,7 +37,7 @@ class HistoryController extends MyGetXController<HistoryProvider> {
 
     // Lỗi server
     if (!response.body.result.success) {
-      toast(content: 'Không thể tải lịch sử thanh toán');
+      toast(content: 'Server error');
       ready.value = true;
       return;
     }

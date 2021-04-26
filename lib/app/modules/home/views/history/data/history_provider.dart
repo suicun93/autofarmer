@@ -1,6 +1,5 @@
 import 'package:get/get.dart';
 
-import '../../../../../common/const.dart';
 import '../../../../../common/preferences.dart';
 import 'history_model.dart';
 
@@ -11,9 +10,9 @@ class HistoryProvider extends GetConnect {
   }
 
   Future<Response<HistoryResponse>> getHistory() async {
-    String token = await Preference.getToken();
+    String token = await Preference.getUserToken();
     return await post(
-      '$endpointApi/getHistory',
+      'https://us-central1-autofarmer-net-9f4b8.cloudfunctions.net/getHistory',
       {'data': '{\"token\":\"$token\"}'},
       headers: {'Content-Type': 'application/json'},
     );
