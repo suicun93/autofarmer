@@ -123,7 +123,7 @@ class Device {
 
   int get lastOnlineTooLong => _lastOnlineSecond ~/ 1000;
 
-  bool get isOffline => loading || error || lastOnlineTooLong > 3600;
+  bool get isOffline => loading || error || lastOnlineTooLong > 1800;
 
   String get displayName => imei?.substring(imei.length - 7) ?? '';
 
