@@ -1,8 +1,3 @@
-TodayResponse todayResponseFromJson(Map<String, dynamic> str) =>
-    TodayResponse.fromJson(str);
-
-Map<String, dynamic> todayResponseToJson(TodayResponse data) => data.toJson();
-
 class TodayResponse {
   TodayResponse({
     this.result,

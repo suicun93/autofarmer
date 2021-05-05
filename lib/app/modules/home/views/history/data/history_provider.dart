@@ -12,9 +12,15 @@ class HistoryProvider extends GetConnect {
   Future<Response<HistoryResponse>> getHistory() async {
     String token = await Preference.getUserToken();
     return await post(
-      'https://us-central1-autofarmer-net-9f4b8.cloudfunctions.net/getHistory',
-      {'data': '{\"token\":\"$token\"}'},
-      headers: {'Content-Type': 'application/json'},
+      'https://adminapi-autolike.congaubeo.us/public-api/v1/employees/financial/all',
+      {
+        "status_number": 2,
+        "token": token,
+      },
+      headers: {
+        'Content-Type': 'application/json',
+        'mobile-secret-key': '3953390b-42bb-11eb-9f8b-1111914b71be',
+      },
     );
   }
 }

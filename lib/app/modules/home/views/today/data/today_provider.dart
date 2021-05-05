@@ -12,15 +12,20 @@ class TodayProvider extends GetConnect {
   Future<Response<TodayResponse>> getToday() async {
     String token = await Preference.getUserToken();
     final date = DateTime.now();
-    final dateTime = DateTime(date.year, date.month, date.day).toLocal();
+    final dateTimeFrom = DateTime(date.year, date.month, date.day).toLocal();
+    final dateTimeTo = DateTime(date.year, date.month, date.day)
+        .add(Duration(hours: 24))
+        .toLocal();
     return await post(
-      'https://us-central1-autofarmer-net-9f4b8.cloudfunctions.net/getServiceTypeHistory',
+      'https://adminapi-autolike.congaubeo.us/public-api/v1/employees/daily-today/all',
       {
-        'data':
-            '{\"token\":\"$token\",\"type\":\"today\",\"status\":2,\"time\":${dateTime.millisecondsSinceEpoch.toString()}}'
+        "from_time": dateTimeFrom.millisecondsSinceEpoch,
+        "to_time": dateTimeTo.millisecondsSinceEpoch,
+        "token": token,
       },
       headers: {
         'Content-Type': 'application/json',
+        'mobile-secret-key': '3953390b-42bb-11eb-9f8b-1111914b71be',
       },
     );
   }

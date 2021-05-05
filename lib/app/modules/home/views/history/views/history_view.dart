@@ -27,9 +27,8 @@ class HistoryView extends GetView<HistoryController> {
                     onRefresh: () async => controller.loadHistory(),
                     child: ListView.builder(
                       itemBuilder: (context, index) => Container(),
-                      itemCount: controller
-                              .response?.body?.result?.listHistory?.length ??
-                          0,
+                      itemCount:
+                          controller.response?.body?.listHistory?.length ?? 0,
                     ),
                   )
             : Column(
@@ -76,19 +75,6 @@ class HistoryView extends GetView<HistoryController> {
                                 ),
                               ),
                             ),
-                            SizedBox(width: 20),
-                            InkWell(
-                              onTap: () async => controller.showTongTien(),
-                              child: SizedBox(
-                                width: 40,
-                                child: Text(
-                                  'Máy',
-                                  textAlign: TextAlign.center,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(fontWeight: FontWeight.bold),
-                                ),
-                              ),
-                            ),
                           ],
                         ),
                         SizedBox(height: 10),
@@ -105,67 +91,61 @@ class HistoryView extends GetView<HistoryController> {
                         : RefreshIndicator(
                             onRefresh: () async => controller.loadHistory(),
                             child: ListView.builder(
-                              itemBuilder: (context, index) => controller
-                                          .response
-                                          ?.body
-                                          ?.result
-                                          ?.listHistory ==
-                                      null
-                                  ? Center(
-                                      child: Text(
-                                        'Không thể tải lịch sử thanh toán',
-                                      ),
-                                    )
-                                  : controller.response.body.result.listHistory
-                                              .length ==
-                                          0
+                              itemBuilder: (context, index) =>
+                                  controller.response?.body?.listHistory == null
                                       ? Center(
                                           child: Text(
-                                            'Hiện tại bạn chưa có ngày nào được thanh toán',
+                                            'Không thể tải lịch sử thanh toán',
                                           ),
                                         )
-                                      : _item(controller.response.body.result
-                                          .listHistory[index]),
-                              itemCount: controller.response?.body?.result
-                                      ?.listHistory?.length ??
+                                      : controller.response.body.listHistory
+                                                  .length ==
+                                              0
+                                          ? Center(
+                                              child: Text(
+                                                'Hiện tại bạn chưa có ngày nào được thanh toán',
+                                              ),
+                                            )
+                                          : _item(controller.response.body
+                                              .listHistory[index]),
+                              itemCount: controller
+                                      .response?.body?.listHistory?.length ??
                                   1,
                             ),
                           ),
                   ),
-                  !controller.showTong.value
-                      ? Container()
-                      : Container(
-                          color: Colors.black12.withAlpha(20),
-                          padding: EdgeInsets.symmetric(
-                            horizontal: 20,
-                            vertical: 12,
-                          ),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Text(
-                                  'Tổng:',
-                                  overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
-                              SizedBox(width: 10),
-                              Expanded(
-                                child: Text(
-                                  numberFormatter.format(controller.sum.value),
-                                  textAlign: TextAlign.end,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.redAccent,
-                                  ),
-                                ),
-                              ),
-                            ],
+                  Container(
+                    color: Colors.black12.withAlpha(20),
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 20,
+                      vertical: 12,
+                    ),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            'Tổng:',
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
+                        SizedBox(width: 10),
+                        Expanded(
+                          child: Text(
+                            numberFormatter.format(controller.sum.value),
+                            textAlign: TextAlign.end,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.redAccent,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
       ),
@@ -181,7 +161,11 @@ class HistoryView extends GetView<HistoryController> {
                 Expanded(
                   flex: 4,
                   child: Text(
-                    history.closedTimeIso ?? 'Unknown',
+                    formatDate2(
+                      DateTime.fromMillisecondsSinceEpoch(
+                        history.closedTime,
+                      ),
+                    ),
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),
@@ -223,14 +207,6 @@ class HistoryView extends GetView<HistoryController> {
                   ),
                 ),
                 SizedBox(width: 20),
-                SizedBox(
-                  width: 40,
-                  child: Text(
-                    history.totalDevice.toString(),
-                    textAlign: TextAlign.center,
-                    // style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                ),
               ],
             ),
             SizedBox(height: 10),
