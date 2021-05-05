@@ -164,7 +164,7 @@ class CloneView extends GetView<CloneController> {
             Divider(height: 1),
             Expanded(
               child: !controller.ready.value
-                  ? Center(child: LoadingWidget())
+                  ? Center(child: LoadingWidget(xoay: false))
                   : RefreshIndicator(
                       onRefresh: () async => controller.onReady(),
                       child: controller.error.value ||
@@ -350,7 +350,8 @@ class CloneView extends GetView<CloneController> {
                           ? Text(
                               formatDatetime(
                                 DateTime.fromMillisecondsSinceEpoch(
-                                    clone.updatedAt),
+                                  clone.updatedAt,
+                                ),
                               ),
                               overflow: TextOverflow.ellipsis,
                               style: TextStyle(color: Colors.orange),
@@ -376,11 +377,12 @@ class CloneView extends GetView<CloneController> {
                     ? InkWell(
                         child: Padding(
                           padding: const EdgeInsets.only(
-                              bottom: 3, right: 3, left: 3),
+                            bottom: 3,
+                            right: 3,
+                            left: 3,
+                          ),
                           child: clone.loading
-                              ? LoadingWidget(
-                                  mini: true,
-                                )
+                              ? LoadingWidget(mini: true)
                               : Icon(
                                   clone.error
                                       ? Icons.refresh

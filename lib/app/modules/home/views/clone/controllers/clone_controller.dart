@@ -139,14 +139,12 @@ class CloneController extends MyGetXController<CloneProvider> {
     }
 
     // Call API
-    final response = await provider.resetCloneLive(listCloneLive);
-
-    // Looxi majng
-    if (!response.isOk) {
-      toast(content: 'Server error. Reset Clone thất bại');
-      ready.value = true;
-      return;
-    }
+    for (String cloneId in listCloneLive)
+      try {
+        await provider.resetCloneLive(cloneId);
+      } catch (e) {
+        toast(content: 'Reset $cloneId thất bại');
+      }
 
     // OK
     onReady();
@@ -165,14 +163,12 @@ class CloneController extends MyGetXController<CloneProvider> {
     }
 
     // Call API
-    final response = await provider.deleteAllClone(listCloneCheckpoint);
-
-    // Looxi majng
-    if (!response.isOk) {
-      toast(content: 'Server error. Xóa Clone thất bại');
-      ready.value = true;
-      return;
-    }
+    for (String cloneId in listCloneCheckpoint)
+      try {
+        await provider.deleteClone(cloneId);
+      } catch (e) {
+        toast(content: 'Delete $cloneId thất bại');
+      }
 
     // OK
     onReady();

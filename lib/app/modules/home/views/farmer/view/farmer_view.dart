@@ -20,7 +20,7 @@ class FarmerView extends GetView<FarmerController> {
         body: Padding(
           padding: const EdgeInsets.only(top: 10.0),
           child: !controller.ready.value
-              ? LoadingWidget()
+              ? Center(child: LoadingWidget(xoay: false))
               : RefreshIndicator(
                   onRefresh: () async => controller.loadFarmer(),
                   child: controller.error.value

@@ -40,29 +40,32 @@ class CloneProvider extends GetConnect {
     );
   }
 
-  Future<Response> deleteAllClone(List<String> listClone) async {
-    String token = await Preference.getUserToken();
-    final listCloneExtended = listClone.map((clone) => '\"$clone\"');
+  Future<Response> deleteClone(String cloneId) async {
+    String token = await Preference.getToken();
     return await post(
-      'https://us-central1-autofarmer-net-9f4b8.cloudfunctions.net/DeleteCloneAll',
+      '$endpointApi/clones/delete',
       {
-        'data':
-            '{\"dataClone\":[${listCloneExtended.join(',')}],\"token\":\"$token\"}'
+        'clone_id': cloneId,
+        'action': 'delete',
       },
-      headers: {'Content-Type': 'application/json'},
+      headers: {
+        'Content-Type': 'application/json',
+        'token': token,
+      },
     );
   }
 
-  Future<Response> resetCloneLive(List<String> listClone) async {
-    String token = await Preference.getUserToken();
-    final listCloneExtended = listClone.map((clone) => '\"$clone\"');
+  Future<Response> resetCloneLive(String cloneId) async {
+    String token = await Preference.getToken();
     return await post(
-      'https://us-central1-autofarmer-net-9f4b8.cloudfunctions.net/ResetCloneLive',
+      '$endpointApi/clones/reset',
       {
-        'data':
-            '{\"dataClone\":[${listCloneExtended.join(',')}],\"token\":\"$token\"}'
+        'clone_id': cloneId,
       },
-      headers: {'Content-Type': 'application/json'},
+      headers: {
+        'Content-Type': 'application/json',
+        'token': token,
+      },
     );
   }
 }

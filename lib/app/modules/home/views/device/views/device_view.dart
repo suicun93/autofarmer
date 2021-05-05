@@ -36,11 +36,14 @@ class DeviceView extends GetView<DeviceController> {
                   ),
                   Expanded(
                     child: !controller.ready.value
-                        ? SizedBox(
-                            child: LoadingWidget(
-                              mini: true,
-                            ),
-                            height: 30,
+                        ? Row(
+                            children: [
+                              SizedBox(
+                                child: LoadingWidget(mini: true),
+                                height: 30,
+                              ),
+                              Expanded(child: Container()),
+                            ],
                           )
                         : controller.error.value
                             ? Text(
@@ -185,7 +188,7 @@ class DeviceView extends GetView<DeviceController> {
             Divider(height: 1),
             Expanded(
               child: !controller.ready.value
-                  ? Center(child: LoadingWidget())
+                  ? Center(child: LoadingWidget(xoay: false))
                   : RefreshIndicator(
                       onRefresh: () async => controller.onReady(),
                       child: controller.error.value ||

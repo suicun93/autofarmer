@@ -45,8 +45,8 @@ class HistoryView extends GetView<HistoryController> {
                               flex: 4,
                               child: Text(
                                 'Ngày',
-                                overflow: TextOverflow.ellipsis,
                                 textAlign: TextAlign.start,
+                                overflow: TextOverflow.ellipsis,
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -77,13 +77,16 @@ class HistoryView extends GetView<HistoryController> {
                               ),
                             ),
                             SizedBox(width: 20),
-                            SizedBox(
-                              width: 40,
-                              child: Text(
-                                'Máy',
-                                textAlign: TextAlign.center,
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyle(fontWeight: FontWeight.bold),
+                            InkWell(
+                              onTap: () async => controller.showTongTien(),
+                              child: SizedBox(
+                                width: 40,
+                                child: Text(
+                                  'Máy',
+                                  textAlign: TextAlign.center,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
                               ),
                             ),
                           ],
@@ -98,12 +101,7 @@ class HistoryView extends GetView<HistoryController> {
                   ),
                   Expanded(
                     child: !controller.ready.value
-                        ? Column(
-                            children: [
-                              SizedBox(height: 100),
-                              LoadingWidget(),
-                            ],
-                          )
+                        ? Center(child: LoadingWidget(xoay: false))
                         : RefreshIndicator(
                             onRefresh: () async => controller.loadHistory(),
                             child: ListView.builder(
@@ -115,7 +113,8 @@ class HistoryView extends GetView<HistoryController> {
                                       null
                                   ? Center(
                                       child: Text(
-                                          'Không thể tải lịch sử thanh toán'),
+                                        'Không thể tải lịch sử thanh toán',
+                                      ),
                                     )
                                   : controller.response.body.result.listHistory
                                               .length ==
@@ -133,6 +132,40 @@ class HistoryView extends GetView<HistoryController> {
                             ),
                           ),
                   ),
+                  !controller.showTong.value
+                      ? Container()
+                      : Container(
+                          color: Colors.black12.withAlpha(20),
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 20,
+                            vertical: 12,
+                          ),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: Text(
+                                  'Tổng:',
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                              SizedBox(width: 10),
+                              Expanded(
+                                child: Text(
+                                  numberFormatter.format(controller.sum.value),
+                                  textAlign: TextAlign.end,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.redAccent,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
                 ],
               ),
       ),

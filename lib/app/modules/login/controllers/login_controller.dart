@@ -7,7 +7,6 @@ import '../../../common/preferences.dart';
 import '../../../data/providers/login_provider.dart' as T;
 
 class LoginController extends MyGetXController<T.LoginProvider> {
-  final noMeaning = true.obs;
   final logoPath = 'images/scorpio.png'.obs;
 
   num lastTap = DateTime.now().millisecondsSinceEpoch;

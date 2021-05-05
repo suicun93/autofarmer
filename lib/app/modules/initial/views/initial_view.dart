@@ -19,7 +19,7 @@ class InitialView extends GetView<InitialController> {
             Expanded(child: Container()),
             Obx(
               () => controller.ready.value
-                  ? LoadingWidget(mini: false)
+                  ? LoadingWidget(xoay: false)
                   : Container(),
             ),
             SizedBox(height: 100),

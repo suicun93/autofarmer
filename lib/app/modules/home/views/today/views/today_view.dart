@@ -80,12 +80,7 @@ class TodayView extends GetView<TodayController> {
             ),
             Expanded(
               child: !controller.ready.value
-                  ? Column(
-                      children: [
-                        SizedBox(height: 100),
-                        LoadingWidget(),
-                      ],
-                    )
+                  ? Center(child: LoadingWidget(xoay: false))
                   : RefreshIndicator(
                       onRefresh: () async => controller.loadToday(),
                       child: controller.error.value

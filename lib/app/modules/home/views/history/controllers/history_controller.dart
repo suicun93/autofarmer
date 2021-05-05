@@ -9,6 +9,11 @@ class HistoryController extends MyGetXController<HistoryProvider> {
   final ready = false.obs;
   Response<HistoryResponse> response;
 
+  final sum = 0.obs;
+  final showTong = false.obs;
+  num lastTap = DateTime.now().millisecondsSinceEpoch;
+  var consecutiveTaps = 0;
+
   @override
   void onInit() {
     super.onInit();
@@ -24,6 +29,7 @@ class HistoryController extends MyGetXController<HistoryProvider> {
   void onClose() {}
 
   loadHistory() async {
+    sum.value = 0;
     ready.value = false;
 
     response = await provider.getHistory();
@@ -42,7 +48,26 @@ class HistoryController extends MyGetXController<HistoryProvider> {
       return;
     }
 
+    for (History history in response.body.result.listHistory)
+      sum.value = sum.value + history.amount;
+
     // Success => Add all new users vao list
     ready.value = true;
+  }
+
+  void showTongTien() async {
+    int now = DateTime.now().millisecondsSinceEpoch;
+    if (now - lastTap < 1000) {
+      print("Consecutive tap");
+      consecutiveTaps++;
+      print("taps = " + consecutiveTaps.toString());
+      if (consecutiveTaps == 5) {
+        // Do something
+        showTong.value = !showTong.value;
+      }
+    } else
+      consecutiveTaps = 0;
+
+    lastTap = now;
   }
 }

@@ -20,19 +20,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9bcdb772-b45e-42c4-9fa5-4b77cc689edc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/loading_rowing.gif" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Podfile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/modules/home/views/device/controllers/device_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/modules/home/views/device/controllers/device_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app/modules/home/views/device/data/device_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/modules/home/views/device/data/device_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/modules/home/views/clone/controllers/clone_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/modules/home/views/clone/controllers/clone_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/modules/home/views/clone/data/clone_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/modules/home/views/clone/data/clone_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/modules/home/views/clone/views/clone_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/modules/home/views/clone/views/clone_view.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/app/modules/home/views/device/views/device_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/modules/home/views/device/views/device_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/modules/home/views/farmer/view/farmer_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/modules/home/views/farmer/view/farmer_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/modules/home/views/history/controllers/history_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/modules/home/views/history/controllers/history_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/modules/home/views/history/views/history_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/modules/home/views/history/views/history_view.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/app/modules/home/views/today/views/today_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/modules/home/views/today/views/today_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/modules/initial/views/initial_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/modules/initial/views/initial_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/modules/login/controllers/login_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/modules/login/controllers/login_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app/views/views/loading_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app/views/views/loading_view.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +58,11 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="memory.settings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/images" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter">
@@ -102,40 +110,44 @@
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state width="616" height="466" key="DebuggerActiveHint/2560.122.1920.1200/0.0.2560.1440@0.0.2560.1440" timestamp="1619463702023" />
-    <state width="1878" height="457" key="GridCell.Tab.0.bottom" timestamp="1619493140741">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1878" height="407" key="GridCell.Tab.0.bottom" timestamp="1620200391283">
+      <screen x="0" y="23" width="1920" height="1002" />
     </state>
-    <state width="1878" height="457" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1619493140741" />
+    <state width="1878" height="457" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1620188346562" />
+    <state width="1878" height="407" key="GridCell.Tab.0.bottom/0.23.1920.1002@0.23.1920.1002" timestamp="1620200391283" />
     <state width="2518" height="512" key="GridCell.Tab.0.bottom/2560.122.1920.1200/0.0.2560.1440@0.0.2560.1440" timestamp="1619464156920" />
-    <state width="1878" height="457" key="GridCell.Tab.0.center" timestamp="1619493140740">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1878" height="407" key="GridCell.Tab.0.center" timestamp="1620200391282">
+      <screen x="0" y="23" width="1920" height="1002" />
     </state>
-    <state width="1878" height="457" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1619493140740" />
+    <state width="1878" height="457" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1620188346561" />
+    <state width="1878" height="407" key="GridCell.Tab.0.center/0.23.1920.1002@0.23.1920.1002" timestamp="1620200391282" />
     <state width="2518" height="512" key="GridCell.Tab.0.center/2560.122.1920.1200/0.0.2560.1440@0.0.2560.1440" timestamp="1619464156918" />
-    <state width="1878" height="457" key="GridCell.Tab.0.left" timestamp="1619493140740">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1878" height="407" key="GridCell.Tab.0.left" timestamp="1620200391282">
+      <screen x="0" y="23" width="1920" height="1002" />
     </state>
-    <state width="1878" height="457" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1619493140740" />
+    <state width="1878" height="457" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1620188346561" />
+    <state width="1878" height="407" key="GridCell.Tab.0.left/0.23.1920.1002@0.23.1920.1002" timestamp="1620200391282" />
     <state width="2518" height="512" key="GridCell.Tab.0.left/2560.122.1920.1200/0.0.2560.1440@0.0.2560.1440" timestamp="1619464156918" />
-    <state width="1878" height="457" key="GridCell.Tab.0.right" timestamp="1619493140741">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1878" height="407" key="GridCell.Tab.0.right" timestamp="1620200391283">
+      <screen x="0" y="23" width="1920" height="1002" />
     </state>
-    <state width="1878" height="457" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1619493140741" />
+    <state width="1878" height="457" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1620188346561" />
+    <state width="1878" height="407" key="GridCell.Tab.0.right/0.23.1920.1002@0.23.1920.1002" timestamp="1620200391283" />
     <state width="2518" height="512" key="GridCell.Tab.0.right/2560.122.1920.1200/0.0.2560.1440@0.0.2560.1440" timestamp="1619464156919" />
     <state x="732" y="249" key="RollbackChangesDialog" timestamp="1619491606933">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="732" y="249" key="RollbackChangesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1619491606933" />
-    <state x="545" y="393" width="1102" height="654" key="find.popup" timestamp="1619464146912">
-      <screen x="0" y="0" width="2560" height="1440" />
-    </state>
-    <state x="409" y="295" width="826" height="490" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1619161098841" />
-    <state x="545" y="393" width="1102" height="654" key="find.popup/2560.122.1920.1200/0.0.2560.1440@0.0.2560.1440" timestamp="1619464146912" />
-    <state x="709" y="264" width="670" height="507" key="search.everywhere.popup" timestamp="1619493600988">
+    <state x="409" y="295" width="826" height="518" key="find.popup" timestamp="1620187943538">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="709" y="264" width="670" height="507" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1619493600988" />
-    <state x="709" y="264" width="670" height="507" key="search.everywhere.popup/0.23.1920.1002@0.23.1920.1002" timestamp="1619150990494" />
+    <state x="409" y="295" width="826" height="518" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1620187943538" />
+    <state x="545" y="393" width="1102" height="654" key="find.popup/2560.122.1920.1200/0.0.2560.1440@0.0.2560.1440" timestamp="1619464146912" />
+    <state x="709" y="264" width="670" height="507" key="search.everywhere.popup" timestamp="1620201541917">
+      <screen x="0" y="23" width="1920" height="1002" />
+    </state>
+    <state x="709" y="264" width="670" height="507" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1620188326065" />
+    <state x="709" y="264" width="670" height="507" key="search.everywhere.popup/0.23.1920.1002@0.23.1920.1002" timestamp="1620201541917" />
     <state x="945" y="352" width="670" height="676" key="search.everywhere.popup/2560.122.1920.1200/0.0.2560.1440@0.0.2560.1440" timestamp="1619466224354" />
   </component>
 </project>
