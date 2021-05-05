@@ -19,9 +19,9 @@ class TodayProvider extends GetConnect {
     return await post(
       'https://adminapi-autolike.congaubeo.us/public-api/v1/employees/daily-today/all',
       {
-        "from_time": dateTimeFrom.millisecondsSinceEpoch,
-        "to_time": dateTimeTo.millisecondsSinceEpoch,
-        "token": token,
+        'from_time': dateTimeFrom.millisecondsSinceEpoch,
+        'to_time': dateTimeTo.millisecondsSinceEpoch,
+        'token': token,
       },
       headers: {
         'Content-Type': 'application/json',

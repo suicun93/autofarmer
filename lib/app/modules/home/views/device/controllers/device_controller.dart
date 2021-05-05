@@ -1,10 +1,10 @@
-import 'package:autofarmer/app/modules/home/views/today/controllers/today_controller.dart';
 import 'package:get/get.dart';
 
 import '../../../../../common/const.dart';
 import '../../../../../common/my_getx_controller.dart';
 import '../../../../../common/preferences.dart';
 import '../../../../../common/toast.dart';
+import '../../today/controllers/today_controller.dart';
 import '../data/device_model.dart';
 import '../data/device_provider.dart';
 

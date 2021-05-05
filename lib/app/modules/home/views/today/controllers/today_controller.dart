@@ -83,7 +83,8 @@ class TodayController extends MyGetXController<TodayProvider> {
       }
 
       // Lỗi server
-      if (!response.body.result.success || response.body.result.total == 0) {
+      if (response.body.code != 200 ||
+          (response.body.listService?.length ?? 0) == 0) {
         toast(content: 'Server Error');
         ready.value = true;
         error.value = true;
@@ -92,7 +93,7 @@ class TodayController extends MyGetXController<TodayProvider> {
 
       // Success => Add all new users vao list
       reset();
-      for (Service service in response.body.result.listService) {
+      for (Service service in response.body.listService) {
         switch (service.type) {
           case Type.BUFFCOMMENT:
             buffcomment.value = buffcomment.value + service.total;
