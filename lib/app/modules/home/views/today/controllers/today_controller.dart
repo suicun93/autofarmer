@@ -135,6 +135,7 @@ class TodayController extends MyGetXController<TodayProvider> {
           milliseconds:
               now.millisecondsSinceEpoch - startDay.millisecondsSinceEpoch);
       int steps = diff.inMinutes ~/ 30;
+      steps = steps - ((steps > 0 && steps % 2 == 0) ? 1 : 0);
 
       // Tính sản lượng
       tocDoTrungBinh.value = steps == 0 ? 0 : tongTien.value ~/ steps;
