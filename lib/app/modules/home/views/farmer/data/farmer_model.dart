@@ -81,7 +81,13 @@ class Farmer {
   String fblink;
   String email;
   String status;
-  DateTime createdAt;
+  dynamic createdAt;
+
+  DateTime get ngayRaKhoi => createdAt == null
+      ? DateTime.now()
+      : (createdAt is String)
+          ? DateTime.parse(createdAt)
+          : DateTime.fromMillisecondsSinceEpoch(createdAt);
 
   factory Farmer.fromJson(Map<String, dynamic> json) => Farmer(
         id: json["id"] == null ? null : json["id"],
@@ -117,9 +123,7 @@ class Farmer {
         fblink: json["fblink"] == null ? null : json["fblink"],
         email: json["email"] == null ? null : json["email"],
         status: json["status"] == null ? null : json["status"],
-        createdAt: json["created_at"] == null
-            ? null
-            : DateTime.parse(json["created_at"]),
+        createdAt: json["created_at"] == null ? null : json["created_at"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -150,6 +154,6 @@ class Farmer {
         "fblink": fblink == null ? null : fblink,
         "email": email == null ? null : email,
         "status": status == null ? null : status,
-        "created_at": createdAt == null ? null : createdAt.toIso8601String(),
+        "created_at": createdAt == null ? null : createdAt,
       };
 }

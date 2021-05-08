@@ -45,7 +45,7 @@ class FarmerView extends GetView<FarmerController> {
                             _item(
                               title: 'Khởi tạo ngày',
                               content: formatDatetime(
-                                controller.farmer.value.createdAt,
+                                controller.farmer.value.ngayRaKhoi,
                               ),
                             ),
                             _item(

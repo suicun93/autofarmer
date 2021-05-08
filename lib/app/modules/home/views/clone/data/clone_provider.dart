@@ -85,7 +85,7 @@ extension Parsing on RequestType {
       case RequestType.ALL:
         return 'All';
       case RequestType.LIVE:
-        return 'Live';
+        return 'Chưa dùng';
       case RequestType.STORED:
         return 'Đã dùng';
       case RequestType.CHECK_POINT:

@@ -40,7 +40,7 @@ final _formatter = DateFormat('yyyy-MM-dd HH:mm');
 final _formatterDate = DateFormat('yyyy-MM-dd');
 final _formatterDate2 = DateFormat('dd-MM');
 
-String formatDatetime(dateTime) => _formatter.format(_valid(dateTime));
+String formatDatetime(DateTime dateTime) => _formatter.format(_valid(dateTime));
 
 String formatDate(dateTime) => _formatterDate.format(_valid(dateTime));
 

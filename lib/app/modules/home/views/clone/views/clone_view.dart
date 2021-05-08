@@ -116,23 +116,26 @@ class CloneView extends GetView<CloneController> {
                         RequestType.LIVE,
                         RequestType.STORED,
                         RequestType.CHECK_POINT,
-                      ].map<DropdownMenuItem<RequestType>>((RequestType value) {
-                        return DropdownMenuItem<RequestType>(
-                          value: value,
-                          child: Container(
-                            padding: EdgeInsets.only(left: 5),
-                            child: Text(
-                              value.toStr(),
-                              overflow: TextOverflow.ellipsis,
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 13,
-                                fontWeight: FontWeight.bold,
+                      ]
+                          .map<DropdownMenuItem<RequestType>>(
+                            (RequestType value) =>
+                                DropdownMenuItem<RequestType>(
+                              value: value,
+                              child: Container(
+                                padding: EdgeInsets.only(left: 5),
+                                child: Text(
+                                  value.toStr(),
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
                               ),
                             ),
-                          ),
-                        );
-                      }).toList(),
+                          )
+                          .toList(),
                       items: <RequestType>[
                         RequestType.ALL,
                         RequestType.LIVE,
