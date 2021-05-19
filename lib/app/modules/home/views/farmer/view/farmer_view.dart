@@ -24,11 +24,47 @@ class FarmerView extends GetView<FarmerController> {
               : RefreshIndicator(
                   onRefresh: () async => controller.loadFarmer(),
                   child: controller.error.value
-                      ? ListView(
+                      ? Column(
                           children: [
-                            SizedBox(
-                              height: Get.height - Get.statusBarHeight - 200,
-                              child: NothingFound('Farmer'),
+                            Expanded(
+                              child: ListView(
+                                children: [
+                                  SizedBox(
+                                    height:
+                                        Get.height - Get.statusBarHeight - 200,
+                                    child: NothingFound('Farmer'),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            InkWell(
+                              onTap: showConfirmDialog(
+                                'Bạn có chắc chắn muốn đăng xuất không',
+                                () => Get.find<HomeController>().logOut(),
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Container(
+                                  width: double.infinity,
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: 30,
+                                    vertical: 15,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(30),
+                                    color: Colors.red,
+                                  ),
+                                  child: Text(
+                                    'Đăng xuất',
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      color: Colors.white,
+                                    ),
+                                    overflow: TextOverflow.ellipsis,
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ),
+                              ),
                             ),
                           ],
                         )
