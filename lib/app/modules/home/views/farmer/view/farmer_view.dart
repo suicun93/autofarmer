@@ -32,76 +32,84 @@ class FarmerView extends GetView<FarmerController> {
                             ),
                           ],
                         )
-                      : ListView(
+                      : Column(
                           children: [
-                            _item(
-                              title: 'Họ tên',
-                              content: controller.farmer.value.fullname,
-                            ),
-                            _item(
-                              title: 'Số điện thoại',
-                              content: controller.farmer.value.username,
-                            ),
-                            _item(
-                              title: 'Khởi tạo ngày',
-                              content: formatDatetime(
-                                controller.farmer.value.ngayRaKhoi,
+                            Expanded(
+                              child: ListView(
+                                children: [
+                                  _item(
+                                    title: 'Họ tên',
+                                    content: controller.farmer.value.fullname,
+                                  ),
+                                  _item(
+                                    title: 'Số điện thoại',
+                                    content: controller.farmer.value.username,
+                                  ),
+                                  _item(
+                                    title: 'Khởi tạo ngày',
+                                    content: formatDatetime(
+                                      controller.farmer.value.ngayRaKhoi,
+                                    ),
+                                  ),
+                                  _item(
+                                    title: 'Token',
+                                    content: controller.farmer.value.token,
+                                  ),
+                                  _item(
+                                    title: 'Email',
+                                    content: controller.farmer.value.email,
+                                  ),
+                                  _item(
+                                    title: 'Facebook',
+                                    content: controller.farmer.value.fblink,
+                                  ),
+                                  _item(
+                                    title: 'Ngân hàng',
+                                    content: controller.farmer.value.bankName,
+                                  ),
+                                  _item(
+                                    title: 'Chủ tài khoản',
+                                    content:
+                                        controller.farmer.value.accountName,
+                                  ),
+                                  _item(
+                                    title: 'Số tài khoản',
+                                    content: controller.farmer.value.bankNumber,
+                                  ),
+                                  InkWell(
+                                    onLongPress: () async => copyToClipboard(
+                                      'https://www.autofarmer.net/sign-up?reference_code=6SM4WK',
+                                    ),
+                                    onTap: () async => copyToClipboard(
+                                      controller.farmer.value.referenceCode +
+                                          controller.farmer.value.inviteCode,
+                                    ),
+                                    child: _item(
+                                      title: 'Mã giới thiệu',
+                                      content:
+                                          controller.farmer.value.referenceCode,
+                                    ),
+                                  ),
+                                  _item(
+                                    title: '100 app',
+                                    checked: controller.farmer.value.user100App,
+                                  ),
+                                  _item(
+                                    title: 'Tham gia kiếm tiền Like Sub',
+                                    checked: controller.farmer.value.isLikeSub,
+                                  ),
+                                ],
                               ),
-                            ),
-                            _item(
-                              title: 'Token',
-                              content: controller.farmer.value.token,
-                            ),
-                            _item(
-                              title: 'Email',
-                              content: controller.farmer.value.email,
-                            ),
-                            _item(
-                              title: 'Facebook',
-                              content: controller.farmer.value.fblink,
-                            ),
-                            _item(
-                              title: 'Ngân hàng',
-                              content: controller.farmer.value.bankName,
-                            ),
-                            _item(
-                              title: 'Chủ tài khoản',
-                              content: controller.farmer.value.accountName,
-                            ),
-                            _item(
-                              title: 'Số tài khoản',
-                              content: controller.farmer.value.bankNumber,
                             ),
                             InkWell(
-                              onLongPress: () async => copyToClipboard(
-                                'https://www.autofarmer.net/sign-up?reference_code=6SM4WK',
+                              onTap: showConfirmDialog(
+                                'Bạn có chắc chắn muốn đăng xuất không',
+                                () => Get.find<HomeController>().logOut(),
                               ),
-                              onTap: () async => copyToClipboard(
-                                controller.farmer.value.referenceCode +
-                                    controller.farmer.value.inviteCode,
-                              ),
-                              child: _item(
-                                title: 'Mã giới thiệu',
-                                content: controller.farmer.value.referenceCode,
-                              ),
-                            ),
-                            _item(
-                              title: '100 app',
-                              checked: controller.farmer.value.user100App,
-                            ),
-                            _item(
-                              title: 'Tham gia kiếm tiền Like Sub',
-                              checked: controller.farmer.value.isLikeSub,
-                            ),
-                            InkWell(
-                              onTap: () => Get.find<HomeController>().logOut(),
                               child: Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 50,
-                                  vertical: 15,
-                                ),
+                                padding: const EdgeInsets.all(8.0),
                                 child: Container(
-                                  margin: EdgeInsets.only(bottom: 10),
+                                  width: double.infinity,
                                   padding: EdgeInsets.symmetric(
                                     horizontal: 30,
                                     vertical: 15,
