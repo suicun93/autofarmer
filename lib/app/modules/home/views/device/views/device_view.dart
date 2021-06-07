@@ -67,7 +67,7 @@ class DeviceView extends GetView<DeviceController> {
                   ),
                   InkWell(
                     onTap: controller.devices
-                                    .where((device) => device.isOffline)
+                                    .where((device) => device.device.isOffline)
                                     .toList()
                                     .length !=
                                 0 ||
@@ -114,7 +114,7 @@ class DeviceView extends GetView<DeviceController> {
                                         ),
                                       )
                                     : Text(
-                                        '${controller.devices.where((device) => device.isOffline).toList().length}',
+                                        '${controller.devices.where((device) => device.device.isOffline).toList().length}',
                                         textAlign: TextAlign.left,
                                         style: TextStyle(
                                           fontSize: 13,
@@ -173,7 +173,7 @@ class DeviceView extends GetView<DeviceController> {
                       ),
                       SizedBox(width: 10),
                       SizedBox(
-                        width: 75,
+                        width: 45,
                         child: Text(
                           'Clone',
                           style: TextStyle(fontWeight: FontWeight.bold),
@@ -216,7 +216,7 @@ class DeviceView extends GetView<DeviceController> {
                                 return isTablet
                                     ? Container()
                                     : controller.filterDeviceOffline.value
-                                        ? (device.isOffline)
+                                        ? (device.device.isOffline)
                                             ? _item(
                                                 device: device,
                                                 index: index,
@@ -237,9 +237,10 @@ class DeviceView extends GetView<DeviceController> {
     );
   }
 
-  Widget _item({Device device, int index}) => Padding(
+  Widget _item({DeviceList device, int index}) => Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(height: 7),
             Row(
@@ -261,26 +262,13 @@ class DeviceView extends GetView<DeviceController> {
                 SizedBox(width: 10),
                 Expanded(
                   flex: 3,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        device.displayName,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                        ),
-                      ),
-                      SizedBox(height: 10),
-                      Text(
-                        device.model,
-                        style: TextStyle(
-                          color: Colors.grey,
-                          fontSize: 12.5,
-                        ),
-                      ),
-                    ],
+                  child: Text(
+                    device.device.displayName,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
                   ),
                 ),
                 SizedBox(width: 10),
@@ -290,14 +278,14 @@ class DeviceView extends GetView<DeviceController> {
                     onLongPress: () async => showDialog(
                       context: Get.context,
                       builder: (context) => AlertDialog(
-                        title: Text('Đổi tên [${device.deviceName}]'),
+                        title: Text('Đổi tên [${device.device.deviceName}]'),
                         content: Column(
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             TextField(
                               autofocus: true,
                               onChanged: (value) {
-                                device.deviceName = value;
+                                device.device.deviceName = value;
                               },
                               decoration: InputDecoration(
                                 hintText: 'Device Name',
@@ -318,8 +306,8 @@ class DeviceView extends GetView<DeviceController> {
                                   () => InkWell(
                                     onTap: controller.isSync.value
                                         ? null
-                                        : () async =>
-                                            controller.changeDeviceName(device),
+                                        : () async => controller
+                                            .changeDeviceName(device.device),
                                     child: Container(
                                       margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
                                       padding: const EdgeInsets.symmetric(
@@ -346,9 +334,8 @@ class DeviceView extends GetView<DeviceController> {
                       ),
                     ),
                     child: SizedBox(
-                      height: 35,
                       child: Text(
-                        device.deviceName,
+                        device.device.deviceName,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           color: Colors.black45,
@@ -360,12 +347,9 @@ class DeviceView extends GetView<DeviceController> {
                 SizedBox(width: 10),
                 Expanded(
                   flex: 3,
-                  child: device.loading
-                      ? SizedBox(
-                          child: LoadingWidget(mini: true),
-                          height: 36,
-                        )
-                      : device.error
+                  child: device.device.loading
+                      ? SizedBox(child: LoadingWidget(mini: true))
+                      : device.device.error
                           ? Icon(
                               Icons.error_outline,
                               color: Colors.red,
@@ -377,16 +361,16 @@ class DeviceView extends GetView<DeviceController> {
                               ),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
-                                color: device.lastOnlineTooLong > 3600
+                                color: device.device.lastOnlineTooLong > 3600
                                     ? Colors.red
-                                    : device.lastOnlineTooLong > 1800
+                                    : device.device.lastOnlineTooLong > 1800
                                         ? Colors.deepOrangeAccent
-                                        : device.lastOnlineTooLong > 300
+                                        : device.device.lastOnlineTooLong > 300
                                             ? Colors.orangeAccent
                                             : Colors.lightGreen,
                               ),
                               child: Text(
-                                device.lastOnlineString,
+                                device.device.lastOnlineString,
                                 textAlign: TextAlign.center,
                                 overflow: TextOverflow.ellipsis,
                                 style: TextStyle(
@@ -399,12 +383,9 @@ class DeviceView extends GetView<DeviceController> {
                 SizedBox(width: 10),
                 SizedBox(
                   width: 35,
-                  child: device.loading
-                      ? SizedBox(
-                          child: LoadingWidget(mini: true),
-                          height: 36,
-                        )
-                      : device.error
+                  child: device.device.loading
+                      ? SizedBox(child: LoadingWidget(mini: true))
+                      : device.device.error
                           ? Icon(
                               Icons.error_outline,
                               color: Colors.red,
@@ -414,14 +395,14 @@ class DeviceView extends GetView<DeviceController> {
                                 vertical: 3,
                               ),
                               child: Text(
-                                device.cloneCount.toString(),
+                                device.device.cloneCount.toString(),
                                 textAlign: TextAlign.center,
                                 overflow: TextOverflow.ellipsis,
                                 style: TextStyle(
-                                  color: device.cloneCount > 95
+                                  color: device.device.cloneCount > 95
                                       ? Colors.blueAccent
                                       : Colors.deepOrangeAccent,
-                                  fontWeight: device.cloneCount > 95
+                                  fontWeight: device.device.cloneCount > 95
                                       ? FontWeight.normal
                                       : FontWeight.bold,
                                 ),
@@ -429,29 +410,30 @@ class DeviceView extends GetView<DeviceController> {
                             ),
                 ),
                 SizedBox(width: 10),
-                SizedBox(
-                  width: 30,
-                  child: device.loading
-                      ? SizedBox(
-                          child: LoadingWidget(mini: true),
-                          height: 36,
-                        )
-                      : InkWell(
-                          child: Padding(
-                            padding: const EdgeInsets.only(
-                                bottom: 3, right: 3, left: 3),
-                            child: Icon(
-                              Icons.refresh_rounded,
-                              color: Colors.green,
-                              size: 28,
-                            ),
-                          ),
-                          onTap: () async => controller.loadClone(
-                            device,
-                            hardPush: true,
-                          ),
-                        ),
-                ),
+                // SizedBox(
+                //   width: 30,
+                //   child: device.device.loading
+                //       ? SizedBox(child: LoadingWidget(mini: true))
+                //       : InkWell(
+                //           child: Padding(
+                //             padding: const EdgeInsets.only(
+                //               right: 3,
+                //               left: 3,
+                //               bottom: 2,
+                //               top: 2,
+                //             ),
+                //             child: Icon(
+                //               Icons.refresh_rounded,
+                //               color: Colors.green,
+                //               size: 21.2,
+                //             ),
+                //           ),
+                //           onTap: () async => controller.loadClone(
+                //             device,
+                //             hardPush: true,
+                //           ),
+                //         ),
+                // ),
               ],
             ),
             SizedBox(height: 7),

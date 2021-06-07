@@ -1,5 +1,4 @@
 import '../../../../../common/timeago.dart' as timeago;
-import 'device_clone_model.dart';
 
 class DeviceResponse {
   DeviceResponse({
@@ -61,10 +60,7 @@ class DeviceList {
     this.imei,
     this.device,
     this.name,
-    this.actionProfileId,
-    this.friendId,
-    this.pageId,
-    this.groupId,
+    this.lastUpdateTime,
   });
 
   String id;
@@ -72,10 +68,7 @@ class DeviceList {
   String imei;
   Device device;
   String name;
-  dynamic actionProfileId;
-  dynamic friendId;
-  dynamic pageId;
-  dynamic groupId;
+  int lastUpdateTime;
 
   factory DeviceList.fromJson(Map<String, dynamic> json) => DeviceList(
         id: json["id"] == null ? null : json["id"],
@@ -83,12 +76,8 @@ class DeviceList {
         imei: json["IMEI"] == null ? null : json["IMEI"],
         device: json["device"] == null ? null : Device.fromJson(json["device"]),
         name: json["name"] == null ? null : json["name"],
-        actionProfileId: json["action_profile_id"] == null
-            ? null
-            : json["action_profile_id"],
-        friendId: json["friend_id"] == null ? null : json["friend_id"],
-        pageId: json["page_id"] == null ? null : json["page_id"],
-        groupId: json["group_id"] == null ? null : json["group_id"],
+        lastUpdateTime:
+            json["last_update_time"] == null ? null : json["last_update_time"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -97,10 +86,7 @@ class DeviceList {
         "IMEI": imei == null ? null : imei,
         "device": device == null ? null : device.toJson(),
         "name": name == null ? null : name,
-        "action_profile_id": actionProfileId == null ? null : actionProfileId,
-        "friend_id": friendId == null ? null : friendId,
-        "page_id": pageId == null ? null : pageId,
-        "group_id": groupId == null ? null : groupId,
+        "last_update_time": lastUpdateTime == null ? null : lastUpdateTime,
       };
 }
 
@@ -127,19 +113,18 @@ class Device {
 
   String get displayName => imei?.substring(imei.length - 7) ?? '';
 
-  void lastOnlineCount(List<Clone> listCLone) {
-    // Empty list
-    if (listCLone.isEmpty) {
-      lastOnlineString = 'Not online';
-      _lastOnlineSecond = -1;
-      return;
-    }
-
-    // Get Last Time
-    int lastTime = listCLone[0].updatedAt;
-    for (var clone in listCLone) {
-      if (clone.updatedAt > lastTime) lastTime = clone.updatedAt;
-    }
+  void lastOnlineCount(int lastTime) {
+    // // Empty list
+    // if (listCLone.isEmpty) {
+    //   lastOnlineString = 'Not online';
+    //   _lastOnlineSecond = -1;
+    //   return;
+    // }
+    //
+    // // Get Last Time
+    // for (var clone in listCLone) {
+    //   if (clone.updatedAt > lastTime) lastTime = clone.updatedAt;
+    // }
 
     // Calculate
     final lastDatetime = DateTime.fromMillisecondsSinceEpoch(lastTime);

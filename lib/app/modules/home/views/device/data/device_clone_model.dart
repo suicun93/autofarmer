@@ -58,6 +58,7 @@ class Clone {
     this.updatedAt,
     this.createdDate,
     this.updatedDate,
+    this.updateLastTime,
   });
 
   String id;
@@ -85,6 +86,7 @@ class Clone {
   bool settingLang;
   bool mz;
   bool cz;
+  int updateLastTime;
   int createdAt;
   int updatedAt;
   DateTime createdDate;
@@ -121,6 +123,8 @@ class Clone {
         settingLang: json["setting_lang"] == null ? null : json["setting_lang"],
         mz: json["mz"] == null ? null : json["mz"],
         cz: json["cz"] == null ? null : json["cz"],
+        updateLastTime:
+            json["updateLastTime"] == null ? null : json["updateLastTime"],
         createdAt: json["createdAt"] == null ? null : json["createdAt"],
         updatedAt: json["updatedAt"] == null ? null : json["updatedAt"],
         createdDate: json["created_date"] == null
@@ -157,6 +161,7 @@ class Clone {
         "setting_lang": settingLang == null ? null : settingLang,
         "mz": mz == null ? null : mz,
         "cz": cz == null ? null : cz,
+        "updateLastTime": updateLastTime == null ? null : updateLastTime,
         "createdAt": createdAt == null ? null : createdAt,
         "updatedAt": updatedAt == null ? null : updatedAt,
         "created_date":

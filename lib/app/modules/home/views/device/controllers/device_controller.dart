@@ -13,7 +13,7 @@ class DeviceController extends MyGetXController<DeviceProvider> {
   final deviceSum = 0.obs;
   final ready = false.obs;
   final deviceCount = 0.obs;
-  var devices = RxList<Device>();
+  var devices = RxList<DeviceList>();
   var response = Response<DeviceResponse>();
   final filterDeviceOffline = false.obs;
 
@@ -32,7 +32,7 @@ class DeviceController extends MyGetXController<DeviceProvider> {
     error.value = false;
     deviceCount.value = 0;
     deviceSum.value = 0;
-    devices = RxList<Device>();
+    devices = RxList<DeviceList>();
     response = Response<DeviceResponse>();
     await loadDevices();
     ready.value = true;
@@ -75,8 +75,8 @@ class DeviceController extends MyGetXController<DeviceProvider> {
         for (DeviceList deviceList in response.body.data.deviceList) {
           deviceList.device.deviceName =
               mapName[deviceList.device.imei] ?? deviceList.device.deviceName;
-          devices.add(deviceList.device);
-          loadClone(deviceList.device);
+          devices.add(deviceList);
+          loadClone(deviceList);
         }
         deviceCount.value = devices.length;
       }
@@ -86,43 +86,46 @@ class DeviceController extends MyGetXController<DeviceProvider> {
     }
   }
 
-  void loadClone(Device device, {bool hardPush = false}) async {
+  void loadClone(
+    DeviceList device, {
+    bool hardPush = false,
+  }) async {
     if (deviceSum.value > 250 && !hardPush) {
-      device.loading = false;
-      device.error = true;
+      device.device.loading = false;
+      device.device.error = true;
       return;
     }
 
-    device.loading = true;
-    device.error = false;
-    device.cloneCount = 0;
+    device.device.loading = true;
+    device.device.error = false;
+    device.device.cloneCount = 0;
     devices.refresh();
 
     try {
       final response = await provider.getDeviceClone(imei: device.imei);
-      device.loading = false;
+      device.device.loading = false;
 
       // Looxi majng
       if (!response.isOk) {
-        device.error = true;
+        device.device.error = true;
         devices.refresh();
         return;
       }
 
       // Lỗi server
       if (response.body.code != 200) {
-        device.error = true;
+        device.device.error = true;
         devices.refresh();
         return;
       }
 
-      device.error = false;
-      device.cloneCount = response.body.listClone.length;
-      device.lastOnlineCount(response.body.listClone);
+      device.device.error = false;
+      device.device.cloneCount = response.body.listClone.length;
+      device.device.lastOnlineCount(device.lastUpdateTime);
       devices.refresh();
     } catch (_) {
-      device.loading = false;
-      device.error = true;
+      device.device.loading = false;
+      device.device.error = true;
       devices.refresh();
     }
   }
